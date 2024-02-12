@@ -3,8 +3,8 @@
 #### Name: Samira Ahmed
 #### TableBuddies+™
 - TB+ 0: Ricky Jiang
-- TB+ 1: Sarah
-- TB+ 2: Ethan
+- TB+ 1: Sarah Wu
+- TB+ 2: Ethan Sie
 
 ---
 ### Instructions
