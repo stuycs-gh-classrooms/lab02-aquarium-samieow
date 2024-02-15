@@ -15,13 +15,14 @@ class Animal {
   }
   
   void move() {
+    borderControl();
     cords.x += velocity.x;
     cords.y += velocity.y;
   }
   
   void borderControl() {
     if (cords.x >= width - animalWidth || cords.x <= 0) {
-      velocity.x += -1;
+      velocity.x *= -1;
     }
     if (cords.y >= height - animalHeight || cords.y <= tankY) {
       velocity.y *= -1;
@@ -34,6 +35,12 @@ class Animal {
     }
     else {
       return false;
+    }
+  }
+  
+  void display() {
+    if (img != null) {
+      image(img, cords.x, cords.y, animalWidth, animalHeight);
     }
   }
   
