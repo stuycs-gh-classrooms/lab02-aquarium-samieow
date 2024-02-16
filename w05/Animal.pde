@@ -40,8 +40,12 @@ class Animal {
   
   void display() {
     if (img != null) {
+      flipImg();
       image(img, cords.x, cords.y, animalWidth, animalHeight);
     }
   }
+  
+  void flipImg(){
+  } // empty but every class will override this function
   
 } // animal class

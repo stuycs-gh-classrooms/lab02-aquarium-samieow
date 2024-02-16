@@ -7,6 +7,7 @@ class Tank {
   int fh;
   
   ArrayList<Animal> animals;
+  ArrayList<Food> food;
   
   Tank (int x, int y, int w, int h, int hh){
     tx = x;
@@ -15,6 +16,7 @@ class Tank {
     th = h;
     fh = hh;
     animals = new ArrayList<Animal>();
+    food = new ArrayList<Food>();
   }
   
   void display(){
@@ -25,7 +27,11 @@ class Tank {
     rect(tx, width - fh, tw, th);
     fill(#A1C96E);
     
-    for (int p = 0; p < animals.size(); p++){
+    overPopulation();
+    for (int p = 0; p < food.size(); p++) {
+      food.get(p).display();
+    }
+    for (int p = 0; p < animals.size(); p++) {
       animals.get(p).display();
     }
   }
@@ -37,10 +43,44 @@ class Tank {
   }
   
   void addAnimal(int x, int y) {
-  int vx = int(2 * pow(-1, int(random(2, 4))));
-  int vy = int(2 * pow(-1, int(random(2, 4))));
-  animals.add(new Koi(x, y, vx, vy, 70, 40));
+    int randomizer = (int)random(3);
+    if (randomizer == 0) {
+      animals.add(new Turtle(x, y));
+    }
+    else if (randomizer == 1) {
+      animals.add(new Koi(x, y));
+    }
+    else {
+      animals.add(new Goldfish(x, y));
+    }
   }
+  
+  void addAnimalSpecific(int x, int y, int p){
+    if (p == KOI) {
+      animals.add(new Koi(x, y));
+    }
+    if (p == GOLDFISH) {
+      animals.add(new Goldfish(x, y));
+    }
+    if (p == TURTLE) {
+      animals.add(new Turtle(x, y));
+    }
+  }
+  
+  void overPopulation() {
+    if (animals.size() > 20) {
+      int p = int(random(animals.size()));
+      animals.remove(p);
+    }
+  }
+  
+  void addFood(int x, int y, int type) {
+    food.add(new Food(x, y, type));
+  }
+  
+  /*void eating() {
+    if(
+  }*/
   
   
 }//Tank Class
